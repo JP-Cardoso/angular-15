@@ -13,6 +13,8 @@ import { RevenuesCardComponent } from 'src/app/components/dashboard/revenues-car
 import { RevenuesComponent } from 'src/app/components/dashboard/revenues/revenues.component';
 import { MessageHourComponent } from 'src/app/components/message-hour/message-hour.component';
 import { DashboardComponent } from './dashboard.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddRevenuesComponent } from 'src/app/components/dashboard/add-revenues/add-revenues.component';
 
 
 
@@ -28,11 +30,15 @@ import { DashboardComponent } from './dashboard.component';
     FooterComponent,
     MessageHourComponent,
     ImgProfileComponent,
-    CardViewComponent,],
+    CardViewComponent,
+    AddRevenuesComponent
+  ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MaterialSharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AddRevenuesComponent } from '../add-revenues/add-revenues.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-revenues',
@@ -7,4 +9,19 @@ import { Component } from '@angular/core';
 })
 export class RevenuesComponent {
 
+  constructor(
+    private dialog: MatDialog,
+  ) {
+  }
+
+  openDialog() {
+    this.dialog.open(AddRevenuesComponent,
+      {
+        width: '600px',
+        data: {
+          any: ''
+        }
+      }
+    )
+  }
 }

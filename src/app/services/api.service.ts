@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { DownloadImageUser } from '../interfaces/downloadImageUser';
 import { RegisterUser } from '../interfaces/registerUser';
 import { UserLogin, LognUser } from '../interfaces/userLogin';
+import { RegisterRevenues } from '../interfaces/registerRevenues';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +71,25 @@ export class ApiService {
     const headers = new HttpHeaders().set('imgName', imgName);
 
     return this.httpClient.get<DownloadImageUser>(environment.BASE_URL + '/download/image', { headers })
+      .pipe(
+        catchError((err) => {
+          if (err.status === 0 && err.status !== 404) {
+            console.error('Ocorreu um erro na aplicação, tente novamente');
+            this.utilsService.showError('Ocorreu um erro na aplicação, tente novamente');
+          } else if (err.status === 404) {
+            console.error(err.error.message);
+            this.utilsService.showError(err.error.message);
+          } else {
+            console.error('Ocorreu um erro na aplicação, tente novamente mais tarde');
+            this.utilsService.showError('Ocorreu um erro na aplicação, tente novamente mais tarde');
+          }
+          return throwError(() => err);
+        })
+      )
+  }
+
+  registerRevenues(revenue: any): Observable<RegisterRevenues> {
+    return this.httpClient.post<RegisterRevenues>(environment.BASE_URL + '/auth/revenues', revenue)
       .pipe(
         catchError((err) => {
           if (err.status === 0 && err.status !== 404) {

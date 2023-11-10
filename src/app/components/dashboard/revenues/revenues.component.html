@@ -6,14 +6,14 @@
             <label class="mat-label"><strong>Encontrar Receita:</strong></label>
             <input matInput placeholder="Pesquisar Receita" />
         </div>
-        <button color="primary" class="btn-default btn btn-primary">
+        <button color="primary" class="btn-default btn btn-primary" (click)="openDialog()">
             Adicionar Receita
         </button>
         <div class="center custom-position">
             <!-- MAT-SPINNER AQUI -->
         </div>
         <div class="display"></div>
-        <table mat-table class="mat-elevation-z8">
+        <!-- <table mat-table class="mat-elevation-z8">
             <ng-container>
                 <th mat-header-cell *matHeaderCellDef>Tipo de Receita</th>
                 <td mat-cell *matCellDef="let element"></td>
@@ -50,17 +50,17 @@
 
             <tr mat-header-row *matHeaderRowDef=""></tr>
             <tr mat-row *matRowDef="let row; columns: "></tr>
-        </table>
+        </table> -->
 
-        <mat-paginator #paginator [length]="" [pageSize]="3" [pageSizeOptions]="[1, 2, 4]">
-        </mat-paginator>
-        <ng-container>
+        <!-- <mat-paginator #paginator [length]="" [pageSize]="3" [pageSizeOptions]="[1, 2, 4]">
+        </mat-paginator> -->
+        <!-- <ng-container>
             <div class="container">
                 <div class="center">
                     <span>Você ainda não cadastrou receitas para esse mês.</span>
                 </div>
             </div>
-        </ng-container>
+        </ng-container> -->
     </app-card-view>
     <!-- FECHA COMPONENTE CARD-VIEW AQUI -->
 </div>
